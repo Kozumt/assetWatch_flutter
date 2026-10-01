@@ -32,12 +32,16 @@ class _LoginScreenState extends State<LoginScreen> {
     if (email.contains('admin')) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const AdminReportsScreen()),
+        MaterialPageRoute(
+          builder: (_) => const AdminReportsScreen(),
+        ),
       );
     } else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const StudentReportsScreen()),
+        MaterialPageRoute(
+          builder: (_) => const StudentReportsScreen(),
+        ),
       );
     }
   }
@@ -50,7 +54,10 @@ class _LoginScreenState extends State<LoginScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF4285F4), Color(0xFFE8F0FE)],
+            colors: [
+              Color(0xFF4285F4),
+              Color(0xFFE8F0FE),
+            ],
           ),
         ),
         child: Center(
@@ -66,12 +73,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(
-                      Icons.school,
-                      size: 64,
-                      color: Color(0xFF1A73E8),
+                    // MCC Logo
+                    Image.asset(
+                      'logo.jpg',
+                      width: 80,
+                      height: 80,
+                      fit: BoxFit.contain,
                     ),
+
                     const SizedBox(height: 8),
+
                     const Text(
                       'MCC',
                       style: TextStyle(
@@ -80,6 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontSize: 16,
                       ),
                     ),
+
                     const Text(
                       'AssetWatch',
                       style: TextStyle(
@@ -88,7 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontSize: 22,
                       ),
                     ),
+
                     const SizedBox(height: 24),
+
                     const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -99,14 +113,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
+
                     const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Track and report campus asset issues',
-                        style: TextStyle(color: Colors.grey, fontSize: 12),
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
+
                     const SizedBox(height: 16),
+
                     TextField(
                       controller: _emailController,
                       decoration: const InputDecoration(
@@ -115,7 +135,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         border: OutlineInputBorder(),
                       ),
                     ),
+
                     const SizedBox(height: 12),
+
                     TextField(
                       controller: _passwordController,
                       obscureText: true,
@@ -124,6 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         border: OutlineInputBorder(),
                       ),
                     ),
+
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
@@ -134,7 +157,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 8),
+
                     SizedBox(
                       width: double.infinity,
                       height: 48,
