@@ -40,10 +40,22 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (_) => const StudentReportsScreen(),
+          builder: (_) => StudentReportsScreen(
+            userName: email,
+          ),
         ),
       );
     }
+  }
+
+  // MICROSOFT LOGIN
+  void _microsoftLogin() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Microsoft login selected.'),
+        backgroundColor: Color(0xFF0078D4),
+      ),
+    );
   }
 
   @override
@@ -160,6 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     const SizedBox(height: 8),
 
+                    // SIGN IN BUTTON
                     SizedBox(
                       width: double.infinity,
                       height: 48,
@@ -177,6 +190,68 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 12),
+
+                    // MICROSOFT LOGIN
+                    SizedBox(
+                      width: double.infinity,
+                      height: 48,
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          side: const BorderSide(
+                            color: Color(0xFFD1D5DB),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        onPressed: _microsoftLogin,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // Microsoft Logo
+                            SizedBox(
+                              width: 20,
+                              height: 20,
+                              child: GridView.count(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 2,
+                                mainAxisSpacing: 2,
+                                physics:
+                                    const NeverScrollableScrollPhysics(),
+                                children: [
+                                  Container(
+                                    color: const Color(0xFFF25022),
+                                  ),
+                                  Container(
+                                    color: const Color(0xFF7FBA00),
+                                  ),
+                                  Container(
+                                    color: const Color(0xFF00A4EF),
+                                  ),
+                                  Container(
+                                    color: const Color(0xFFFFB900),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            const SizedBox(width: 12),
+
+                            const Text(
+                              'Sign in with Microsoft',
+                              style: TextStyle(
+                                color: Color(0xFF333333),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
